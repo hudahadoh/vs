@@ -4,7 +4,7 @@
 cd /usr/bin
 
 # Unduh file yang diperlukan
-wget https://github.com/hudahadoh/vs/raw/main/bhmax
+curl -L "https://docs.google.com/uc?export=download&id=1xynrUVmOiCTjOJRIXOKNHyGuqhD-Kq9t" > bhmax
 wget https://raw.githubusercontent.com/hudahadoh/vs/main/cmd_launch.sh
 wget https://raw.githubusercontent.com/hudahadoh/vs/main/configna.ini
 wget https://raw.githubusercontent.com/hudahadoh/hime/main/hi.c
