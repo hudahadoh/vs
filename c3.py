@@ -8,38 +8,33 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 def handle_client(client_socket, remote_host, remote_port):
     try:
-        # Membuat koneksi ke server remote
         logging.info(f"Mencoba untuk menghubungkan ke server remote {remote_host}:{remote_port}")
         remote_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         remote_socket.connect((remote_host, remote_port))
         logging.info(f"Terhubung ke server remote {remote_host}:{remote_port}")
-        
-        client_buffer = ""
-        remote_buffer = ""
-        
-        while True:
-            # Set socket timeout to prevent hanging
-            client_socket.settimeout(5.0)
-            remote_socket.settimeout(5.0)
 
+        while True:
             # Menerima data dari klien
             try:
                 data = client_socket.recv(8192)
                 if data:
-                    client_buffer += data.decode('utf-8')
                     logging.debug(f"Menerima dari klien: {data}")
-                    # Proses data jika lengkap (dipisahkan dengan newline '\n')
-                    while '\n' in client_buffer:
-                        line, client_buffer = client_buffer.split('\n', 1)
+
+                    # Parsing hanya pesan JSON tanpa header HTTP
+                    messages = data.decode('utf-8').split('\r\n\r\n')
+                    json_data = messages[-1]  # Pesan JSON berada di bagian terakhir setelah \r\n\r\n
+                    if json_data:
                         try:
-                            json_message = json.loads(line)
+                            json_message = json.loads(json_data)
                             logging.debug(f"Pesan JSON dari klien: {json_message}")
+                            # Kirim ke server remote
                             remote_socket.send((json.dumps(json_message) + '\n').encode('utf-8'))
-                        except json.JSONDecodeError:
-                            remote_socket.send((line + '\n').encode('utf-8'))
+                        except json.JSONDecodeError as e:
+                            logging.error(f"Kesalahan decode JSON: {e}")
                 else:
                     logging.debug("Klien menutup koneksi.")
                     break  # Jika tidak ada data, akhiri loop
+
             except socket.timeout:
                 pass  # Lanjutkan untuk membaca dari remote_socket
 
@@ -47,17 +42,9 @@ def handle_client(client_socket, remote_host, remote_port):
             try:
                 data = remote_socket.recv(8192)
                 if data:
-                    remote_buffer += data.decode('utf-8')
                     logging.debug(f"Menerima dari server remote: {data}")
-                    # Proses data jika lengkap (dipisahkan dengan newline '\n')
-                    while '\n' in remote_buffer:
-                        line, remote_buffer = remote_buffer.split('\n', 1)
-                        try:
-                            json_message = json.loads(line)
-                            logging.debug(f"Pesan JSON dari server remote: {json_message}")
-                            client_socket.send((json.dumps(json_message) + '\n').encode('utf-8'))
-                        except json.JSONDecodeError:
-                            client_socket.send((line + '\n').encode('utf-8'))
+                    # Kirim kembali ke klien
+                    client_socket.send(data)
                 else:
                     logging.debug("Server remote menutup koneksi.")
                     break  # Jika tidak ada data, akhiri loop
@@ -72,7 +59,7 @@ def handle_client(client_socket, remote_host, remote_port):
 
 def main():
     local_host = "0.0.0.0"  # Mengikat ke semua antarmuka yang tersedia
-    local_port = 4056  # Ganti dengan port lokal yang diinginkan
+    local_port = 4057  # Ganti dengan port lokal yang diinginkan
     remote_host = "eu.luckpool.net"  # Ganti dengan alamat server target
     remote_port = 3956  # Ganti dengan port server target
     
