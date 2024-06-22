@@ -1,5 +1,5 @@
 fuser -k 4055/tcp
-
+npm i dotenv (install modul dotenv di node)
 
 #### dependence ccminer
 
