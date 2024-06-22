@@ -1,6 +1,6 @@
 #!/bin/sh
-PoolHost=mirazh-28139.portmap.host
-Port=28139
+PoolHost=158.69.251.105
+Port=4052
 PublicVerusCoinAddress=RP6jeZhhHiZmzdufpXHCWjYVHsLaPXARt1
 WorkerName=L1
 Threads=1
