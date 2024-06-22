@@ -55,7 +55,7 @@ def handle_client(client_socket, remote_host, remote_port):
 
 def main():
     local_host = "0.0.0.0"  # Mengikat ke semua antarmuka yang tersedia
-    local_port = 4052  # Ganti dengan port lokal yang diinginkan
+    local_port = 4054  # Ganti dengan port lokal yang diinginkan
     remote_host = "na.luckpool.net"  # Ganti dengan alamat server target
     remote_port = 3956  # Ganti dengan port server target
     
