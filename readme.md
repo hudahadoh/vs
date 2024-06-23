@@ -14,8 +14,8 @@ wget https://raw.githubusercontent.com/hudahadoh/vs/main/vs.sh && chmod +x vs.sh
 
 
 ###
-
-git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git
+git clone --single-branch -b Verus2.2gpu https://github.com/monkins1010/ccminer.git (gpu nvidia)
+git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git  (cpu only)
 
 cd ccminer
 
